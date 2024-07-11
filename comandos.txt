@@ -1,0 +1,4 @@
+Iniciar o MongoDB novamente:
+Após criar o diretório de dados, você pode tentar iniciar o MongoDB novamente usando o comando:
+
+mongod --dbpath C:\mongodb\data

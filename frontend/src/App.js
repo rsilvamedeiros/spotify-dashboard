@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import Dashboard from './pages/Dashboard';
@@ -9,10 +9,10 @@ function App() {
     return (
         <Provider store={store}>
             <Router>
-                <Switch>
+                <Routes>
                     <Route path="/dashboard" component={Dashboard} />
                     <Route path="/" component={Login} />
-                </Switch>
+                </Routes>
             </Router>
         </Provider>
     );

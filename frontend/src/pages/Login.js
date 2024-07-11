@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Typography } from '@material-ui/core';
+import { Button, Container, Typography } from '@mui/material';
 
 const Login = () => {
     return (
