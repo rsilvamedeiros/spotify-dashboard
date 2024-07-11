@@ -4,7 +4,23 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { getUser, logout } from '../redux/actions/authActions';
 import { Button, Typography, Container, CircularProgress } from '@mui/material';
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+        textAlign: 'center',
+    },
+    header: {
+        marginBottom: theme.spacing(4),
+    },
+    userInfo: {
+        marginBottom: theme.spacing(2),
+    },
+    logoutButton: {
+        marginTop: theme.spacing(2),
+    },
+}));
+
 const Dashboard = () => {
+    const classes = useStyles();
     const dispatch = useDispatch();
     const { user, isAuthenticated } = useSelector((state) => state.auth);
     const navigate = useNavigate(); // Alterado aqui
@@ -36,12 +52,17 @@ const Dashboard = () => {
     }
 
     return (
-        <Container>
-            <Typography variant="h4">Spotify Dashboard</Typography>
+        <Container className={`${classes.root} app-container`}>
+            <Typography variant="h4" className={classes.header}>Spotify Dashboard</Typography>
             {user && (
-                <div>
+                <div className={classes.userInfo}>
                     <Typography variant="h6">Bem-vindo, {user.displayName}</Typography>
-                    <Button variant="contained" color="primary" onClick={handleLogout}>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.logoutButton}
+                        onClick={handleLogout}
+                    >
                         Logout
                     </Button>
                 </div>
