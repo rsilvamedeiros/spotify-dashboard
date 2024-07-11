@@ -1,4 +1,4 @@
-import { createTheme } from '@material-ui/core/styles';
+import { createTheme } from '@mui/material/styles'; // Update import
 
 const theme = createTheme({
     palette: {
@@ -22,17 +22,21 @@ const theme = createTheme({
             marginBottom: '0.5rem',
         },
     },
-    overrides: {
+    components: {
         MuiButton: {
-            root: {
-                borderRadius: '50px',
-                textTransform: 'none',
-                padding: '10px 20px',
+            styleOverrides: {
+                root: {
+                    borderRadius: '50px',
+                    textTransform: 'none',
+                    padding: '10px 20px',
+                },
             },
         },
         MuiContainer: {
-            root: {
-                padding: '2rem',
+            styleOverrides: {
+                root: {
+                    padding: '2rem',
+                },
             },
         },
     },

@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { getUser, logout } from '../redux/actions/authActions';
 import { Button, Typography, Container, CircularProgress } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { getUser, logout } from '../redux/actions/authActions';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -23,24 +24,24 @@ const Dashboard = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
     const { user, isAuthenticated } = useSelector((state) => state.auth);
-    const navigate = useNavigate(); // Alterado aqui
+    const navigate = useNavigate();
     const location = useLocation();
 
     useEffect(() => {
         const token = new URLSearchParams(location.search).get('token');
         if (token) {
             localStorage.setItem('token', token);
-            navigate('/dashboard', { replace: true }); // Alterado aqui
+            navigate('/dashboard', { replace: true });
         }
         if (localStorage.getItem('token')) {
             dispatch(getUser(localStorage.getItem('token')));
         }
-    }, [dispatch, navigate, location]); // Alterado aqui
+    }, [dispatch, navigate, location]);
 
     const handleLogout = () => {
         dispatch(logout());
         localStorage.removeItem('token');
-        navigate('/'); // Alterado aqui
+        navigate('/');
     };
 
     if (!isAuthenticated) {

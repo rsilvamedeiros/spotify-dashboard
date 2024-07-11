@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Container, Typography } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -15,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Login = () => {
     const classes = useStyles();
+
     return (
         <Container className={`${classes.root} app-container`}>
             <Typography variant="h4" className={classes.title}>Login with Spotify</Typography>
