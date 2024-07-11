@@ -27,3 +27,8 @@ app.use('/auth', require('./routes/auth'));
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+console.log('PORT:', process.env.PORT);
+console.log('MONGO_URI:', process.env.MONGO_URI);
+console.log('SPOTIFY_CLIENT_ID:', process.env.SPOTIFY_CLIENT_ID);
+console.log('SPOTIFY_CALLBACK_URL:', process.env.SPOTIFY_CALLBACK_URL);
